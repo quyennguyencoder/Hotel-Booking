@@ -43,9 +43,9 @@ public class SecurityConfig {
                 .sessionManagement(manager -> manager
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-                .exceptionHandling(exception ->
-                        exception.accessDeniedHandler(customAccessDenialHandler)
-                                .authenticationEntryPoint(customAuthenticationEntryPoint)
+                .exceptionHandling(exception -> exception
+                        .accessDeniedHandler(customAccessDenialHandler)
+                        .authenticationEntryPoint(customAuthenticationEntryPoint)
                 )
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/auth/**", "/api/rooms/**", "/api/bookings/**","/uploads/**").permitAll()
